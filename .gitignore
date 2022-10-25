@@ -1,0 +1,14 @@
+.DS_Store
+/env/
+.env
+/.quarto/
+*.tex
+*.cls
+*.toc
+*.bst
+*.pdf
+*.log
+*.aux
+*.def
+_tufte/
+docs/

@@ -1,0 +1,49 @@
+title: Tufte Quarto
+author: Fred Guth
+version: 1.1.0
+quarto-version: ">=1.2.215"
+contributes:
+  project:
+    project:
+      type: book
+      output-dir: docs
+    format:
+      html:
+        page-layout: full
+        reference-location: margin
+        citation-location: block
+        title-block-style: none
+        css: styles.css
+        number-sections: false
+        linkcolor: Maroon
+        backgroundcolor: FloralWhite
+        sidebarbackgroundcolor: FloralWhite
+        mainfont: "heuristica"
+        toc-location: left
+        toc-title: "Contents"
+      pdf:
+        reference-location: margin
+        citation-location: margin
+        fig-cap-location: bottom
+        documentclass: tufte-book
+        number-sections: false
+        format-resources:
+          - tufte-book.cls
+          - tufte-common.def
+          - tufte.bst
+        include-in-header:
+          - "partials/in-header.tex"
+          - "partials/definitions.tex"
+        template-partials:
+          - "partials/title.tex"
+        include-before-body:
+          - "partials/before-body.tex"
+        keep-tex: true
+        toc-depth: 2
+        toc-title: "Contents"
+        indent: 0px
+        biblio-style: dinat
+        mainfont: "Minion Pro"
+        # mainfontoptions: [minionint,footnotefigures, frenchmath]
+        sansfont: "TeX Gyre Heros"
+        sansfontoptions: "Scale=MatchUppercase"
