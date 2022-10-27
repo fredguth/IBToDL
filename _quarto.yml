@@ -43,8 +43,8 @@ format: # specific to my dissertation
     html:
       default-image-extension: svg
       open-graph: true
-      site-url: https://fredguth.github.io/tufte-quarto/
-      repo-url: https://github.com/fredguth/tufte-quarto/
+      site-url: https://fredguth.github.io/IBToDL/
+      repo-url: https://github.com/fredguth/IBToDL/
       repo-actions: [edit, issue]
       page-footer:
         left: |
@@ -54,8 +54,8 @@ format: # specific to my dissertation
             href: https://twitter.com/fredguth
             aria-label: Fred's Twitter
           - icon: github
-            href: https://github.com/fredguth/tufte-quarto/
-            aria-label: Tufte-Quarto on GitHub
+            href: https://github.com/fredguth/IBToDL/
+            aria-label: IBToDL on GitHub
       html-math-method: mathjax
       include-in-header:
         - "Tex/_dollar.tex" # hack for macros in html https://github.com/quarto-dev/quarto-cli/discussions/2845
