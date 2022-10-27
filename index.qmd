@@ -4,12 +4,13 @@
 <!-- Q:  Why is this appearing on PDF? -->
 # Welcome {.unnumbered .unlisted}
 
-This is a showcase of the Tufte-Quarto project type.  
+ This is the website companion for [my dissertation](./IBToDL.pdf).
 
-See [pdf](./IBToDL.pdf).
+ It is yet not finished, but I decided to publish it online anyway.
 
+ This version is being built with [Tufte-Quarto](http://github.com/fredguth/tufte-quarto). 
 
-[![A thesis built with Tufte-Quarto. Click to download pdf.](cover.svg){.column-margin #fig-cover}](./IBToDL.pdf)
+[![The emergence of an Information Bottleneck Theory of Deep Learning](cover.svg){.column-margin #fig-cover}](./IBToDL.pdf)
 
 
 :::

@@ -43,7 +43,7 @@ contributes:
         toc-title: "Contents"
         indent: 0px
         biblio-style: dinat
-        mainfont: "Minion Pro"
+        mainfont: "ETbb"
         # mainfontoptions: [minionint,footnotefigures, frenchmath]
         sansfont: "TeX Gyre Heros"
         sansfontoptions: "Scale=MatchUppercase"
