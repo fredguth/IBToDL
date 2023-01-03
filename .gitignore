@@ -2,13 +2,13 @@
 /env/
 .env
 /.quarto/
-*.tex
-*.cls
+./IBToDL.tex
+./tufte-book.cls
 *.toc
 *.bst
 *.pdf
 *.log
 *.aux
-*.def
+./tufte-common.def
 _tufte/
 docs/

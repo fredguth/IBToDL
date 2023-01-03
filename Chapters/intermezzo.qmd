@@ -125,7 +125,7 @@ Now we can follow  [@haussler:1988] steps as we did in [\[sec:pac-bayes\]][4].
 :::
 
 ::: proof
-*Proof.* Let $h$ be parametrised by $\rvW$ and the empirical mutual information of the weights w.r.t the available sample $S^{n}$ be $\empIWD$. From [\[shannon_inequality\]][5], let us call $h_{\text{bad}}$ a consistent hypothesis that does not generalises and $\HH_{\text{bad}}$ the space of all possible bad hypotheses. $$\begin{aligned}
+Let $h$ be parametrised by $\rvW$ and the empirical mutual information of the weights w.r.t the available sample $S^{n}$ be $\empIWD$. From [\[shannon_inequality\]][5], let us call $h_{\text{bad}}$ a consistent hypothesis that does not generalises and $\HH_{\text{bad}}$ the space of all possible bad hypotheses. $$\begin{aligned}
   Pr~(|\empIWD - \IWD|> \epsilon)&<\delta ~\therefore \\
   Pr~[R(h)=0 \land |\empIWD - \IWD| >\epsilon]&=1-\delta\\
   \E_S[R(h)=0 \land |\empIWD - \IWD| >\epsilon]&=(1-\delta)^n\\
@@ -147,7 +147,7 @@ Now we can follow  [@haussler:1988] steps as we did in [\[sec:pac-bayes\]][4].
 :::
 
 ::: proof
-*Proof.* $$\begin{aligned}
+$$\begin{aligned}
         \delta &> e^{- \epsilon n + 2^{\empIWD}} \\
     \ln{\delta} &>- \epsilon n + 2^{\empIWD} \\
         \epsilon n &< 2^{\empIWD} - \ln{\delta} \\
@@ -165,7 +165,7 @@ Now we can follow  [@haussler:1988] steps as we did in [\[sec:pac-bayes\]][4].
 :::
 
 ::: proof
-*Proof.* Using the Chernoff-Hoeffding inequality and the union bound as [\[th:haussler\]][6] and [\[sec:pac-bayes\]][4], we have: $$\begin{aligned}
+Using the Chernoff-Hoeffding inequality and the union bound as [\[th:haussler\]][6] and [\[sec:pac-bayes\]][4], we have: $$\begin{aligned}
     Pr[w \in W:|\empIWD - \IWD| > \epsilon] &< 2e^{-2n\epsilon^2}\\
     Pr[w \in W:|\empIWD - \IWD| > \epsilon] &= \frac{1}{|\HH^{\delta}_Q|}\delta\\
     2e^{-2n\epsilon^2} &< |\HH^{\delta}_Q|^{-1}\delta  \\
@@ -185,7 +185,7 @@ Now we can follow  [@haussler:1988] steps as we did in [\[sec:pac-bayes\]][4].
 :::
 
 ::: proof
-*Proof.* $$\begin{aligned}
+$$\begin{aligned}
       \epsilon^2 &< \frac{ 2^{\empIWD} + \ln\dfrac{2}{\delta}}{2n}\\
       n~&<~\frac{ 2^{\empIWD} + \ln\dfrac{2}{\delta}}{2\epsilon^2}
     

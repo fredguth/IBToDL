@@ -1,4 +1,3 @@
-
 ::: {.content-hidden unless-format="html"}
 
 <!-- Q:  Why is this appearing on PDF? -->
@@ -10,7 +9,6 @@
 
  This version is being built with [Tufte-Quarto](http://github.com/fredguth/tufte-quarto). 
 
-[![The emergence of an Information Bottleneck Theory of Deep Learning](cover.svg){.column-margin #fig-cover}](./IBToDL.pdf)
-
+[![Download dissertation](cover.svg){.column-margin #fig-cover}](./IBToDL.pdf)
 
 :::

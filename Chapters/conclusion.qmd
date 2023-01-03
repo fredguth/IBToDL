@@ -65,13 +65,13 @@ We found that [IBT]{acronym-label="IBT" acronym-form="singular+short"} neither i
 The present dissertation revealed that [IBT]{acronym-label="IBT" acronym-form="singular+short"}, far from being rigorous and complete, is an emerging theory with a compelling narrative and many open opportunities for research.
 
   [1]: #ch:intermezzo {reference-type="ref" reference="ch:intermezzo"}
-  [2]: #sec:rethink_generalisation {reference-type="ref" reference="sec:rethink_generalisation"}
+  [2]: #sec-rethink_generalisation {reference-type="ref" reference="sec:rethink_generalisation"}
   [3]: #ch:ib_and_dl {reference-type="ref" reference="ch:ib_and_dl"}
-  [4]: #sec:narrative {reference-type="ref" reference="sec:narrative"}
-  [5]: #sec:conclusion-ibrl {reference-type="ref" reference="sec:conclusion-ibrl"}
+  [4]: #sec-narrative {reference-type="ref" reference="sec:narrative"}
+  [5]: #sec-conclusion-ibrl {reference-type="ref" reference="sec:conclusion-ibrl"}
   [6]: #ch:it_epistemology {reference-type="ref" reference="ch:it_epistemology"}
   [7]: #ch:ib_and_rl {reference-type="ref" reference="ch:ib_and_rl"}
   [8]: #fig:ib-mean-variation {reference-type="ref" reference="fig:ib-mean-variation"}
   [9]: #ch:information {reference-type="ref" reference="ch:information"}
-  [10]: #sec:greeks {reference-type="ref" reference="sec:greeks"}
-  [11]: #sec:mlt_criticism {reference-type="ref" reference="sec:mlt_criticism"}
+  [10]: #sec-greeks {reference-type="ref" reference="sec:greeks"}
+  [11]: #sec-mlt_criticism {reference-type="ref" reference="sec:mlt_criticism"}

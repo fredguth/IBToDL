@@ -10,6 +10,13 @@ fig-cap-location: bottom
 \epigraph{I visualise a time when we will be to robots what dogs are to humans \\
 \ldots and I am rooting for the machines.}{--- Claude Shannon}
 
+::: {.content-hidden}
+$$
+{{< include ../Tex/math_macros.tex >}}
+$$
+
+:::
+
 ::: {.content-hidden when-format="html"}
 
 # Artificial Intelligence {#ch-artificial_intelligence}
@@ -42,9 +49,9 @@ In this dissertation:
 
 Under our generous definition, intelligence is not limited to humans. It applies to any agent[^22]: animal or machine. For example, a bacteria can perceive its environment through chemical signals, process them, and then produce chemicals to signal other bacteria. An air-conditioning can observe temperature changes, know its state, and adapt its functioning, turning off if it is cold or on if it is hot --- *intelligence exempts understanding*. The air-conditioning does not comprehend what it is doing. The same way a calculator does not know arithmetics.
 
-### A strange inversion of reasoning
+### A strange inversion of reasoning {#sec-turing_strange_inversion}
 
-This competence without comprehension is what the philosopher Daniel Dennett calls *Turing's strange inversion of reasoning*[^23][]{#turing_strange_inversion label="turing_strange_inversion"}. The idea of a *strange inversion* comes from one of Darwin's 19^th^-century critics [@mackenzie1868 as cited by @dennett2009]:
+This competence without comprehension is what the philosopher Daniel Dennett calls *Turing's strange inversion of reasoning*[^23]. The idea of a *strange inversion* comes from one of Darwin's 19^th^-century critics [@mackenzie1868 as cited by @dennett2009]:
 
 > ‘In the theory with which we have to deal, Absolute Ignorance is the artificer; so that we may enunciate as the fundamental principle of the whole system, that, **in order to make a perfect and beautiful machine, it is not requisite to know how to make it**. This proposition will be found, on careful examination, to express, in condensed form, the essential purport of the \[Evolution\] Theory, and to express in a few words all Mr Darwin's meaning; who, by **a strange inversion of reasoning**, seems to think Absolute Ignorance fully qualified to take the place of Absolute Wisdom in all of the achievements of creative skill.’ 
 >
@@ -150,21 +157,24 @@ Their work inspired John von Neumann's demonstration of how to create a universa
 
 In 1956, John McCarthy, Claude Shannon (who invented Information Theory, @fig-claude-shannon), Marvin Minsky and Nathaniel Rochester organised a 2-month summer workshop in Dartmouth College to bring researchers of different fields concerned with *"thinking machines"* (cybernetics, information theory, automata theory). The workshop attendees became a community of researchers and chose the term *"artificial intelligence"* for the field.
 
-::: {.content-hidden unless-format="html" .column-body #blind-men}
+::: {.content-hidden unless-format="html" .column-body #sec-blind-men}
 </BR>
 </BR>
 
 ![The Blind Men and the Elephant.](/Images/elephant-colored.png){#fig-elephant}
 
 :::
-
-::: {.content-hidden unless-format="pdf" .column-page #fig-elephant #blind-men}
- 
- {{< pagebreak >}} 
+::: {.content-hidden unless-format="pdf"}
+{{< pagebreak >}} 
 \vspace{2cm}
+
+::: {.column-body #fig-elephant}
+
 ![](/Images/elephant.pdf)
 
 The Blind Men and the Elephant.
+
+:::
 
 :::
 
@@ -365,7 +375,7 @@ a **[MLPs]{acronym-label="MLP" acronym-form="plural+full"}** is a neural network
 
  $$
  \begin{aligned}          
-    h^{(0)}= 1\frown \vx
+    h^{(0)}= \{1, \vx \}
  \end{aligned}
  $$ 
 
@@ -412,9 +422,9 @@ We gave historical background on [AI]{acronym-label="AI" acronym-form="singular+
 
 ### Assumptions
 
-1.  A definition of intelligence [@def-intelligence]
+1.  A definition of intelligence (@def-intelligence);
 
-2.  An epistemic choice on the definition of Knowledge [@sec-rationalism, @sec-empiricism]
+2.  An epistemic choice on the definition of Knowledge (@sec-rationalism, @sec-empiricism).
 
 ::: {.border-bottom}
 >

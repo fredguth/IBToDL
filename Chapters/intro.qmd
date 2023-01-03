@@ -8,11 +8,6 @@ description: |
 \epigraph{As far as the laws of mathematics refer to reality, they are not certain; \\
  and as far as they are certain, they do not refer to reality.}{--- Albert Einstein}
 
-::: {.content-hidden when-format="html"}
-
-# Introduction {#ch:introduction}
-
-:::
 
 In his acceptance speech for the Test-of-Time award in NeurIPS 2017,[^1] Ali Rahimi[^2] started a controversy by frankly declaring [@rahimi2017 12'10"]. His concerns on the lack of theoretical understanding of machine learning for critical decision-making are rightful:
 
@@ -26,25 +21,12 @@ Both researchers, at least, agree upon one thing: *the practice of machine learn
 
 [^2]: Research Scientist, Google. 
 
-::: {.content-hidden unless-format="pdf"}
 
-![Richard Feynman, Nobel laureate physicist.](/Images/Feynman.pdf){.column-margin #fig-feynman width=90%}
 
-:::
+![Richard Feynman, Nobel laureate physicist.](/Images/Feynman){.column-margin #fig-feynman width=90%}
 
-::: {.content-hidden unless-format="html"}
 
-![Richard Feynman, Nobel laureate physicist.](/Images/Feynman.svg){.column-margin #fig-feynman width=90%}
-
-:::
-
-::: {.content-hidden}
-
-## Context 
-
-:::
-
-### A Tale of Babylonians and Greeks {#sec:greeks}
+### A Tale of Babylonians and Greeks {#sec-greeks}
 
 Richard Feynman ([@fig-feynman]) used to lecture this story [@feynman1994]: Babylonians were pioneers in mathematics; Yet, the Greeks took the credit. We are used to the Greek way of doing Math: start from the most basic axioms and build up a knowledge system. Babylonians were quite the opposite; they were pragmatic. No knowledge was considered more fundamental than others, and there was no urge to derive proofs in a particular order. Babylonians were concerned with the phenomena, Greeks with the ordinance. In Feynman's view, science is constructed in the Babylonian way. There is no fundamental truth. Theories try to connect dots from different pieces of knowledge. Only as science advances, one can worry about reformulation, simplification and ordering. Scientists are Babylonians; mathematicians are Greeks.
 
@@ -64,10 +46,14 @@ Understanding the epistemic contrast between mathematics and science will help u
 
 **Science is a narrative** of how we understand Nature [@gleiser2018]. In science, we collect facts, but they need interpretation. The logical conclusion from the hypothesis that predicts some behaviour in nature gives a plausible *meaning* to what we observed.
 
-To illustrate, take the ancient human desire of flying. There have always been stories of men strapping wings to themselves and attempting to fly by jumping from a tower and flapping those wings like birds [see @farrington2016]. While concepts like lift, stability, and control were poorly understood, most human flight attempts ended in severe injury or even death. It did not matter how much evidence, how many hours of seeing different animals flying, those ludicrous brave men experienced; the *meaning* they took from what they saw was wrong, and their predictions incorrect.
+To illustrate, take the ancient human desire of flying ([@fig-goya]). There have always been stories of men strapping wings to themselves and attempting to fly by jumping from a tower and flapping those wings like birds [see @farrington2016]. While concepts like lift, stability, and control were poorly understood, most human flight attempts ended in severe injury or even death. It did not matter how much evidence, how many hours of seeing different animals flying, those ludicrous brave men experienced; the *meaning* they took from what they saw was wrong, and their predictions incorrect.
 
+::: {.column-body #fig-goya}
 
-![ ‘A way of flying’, Francisco Goya, 1815--1820, Amsterdam, Rijksmuseum.](/Images/goya.jpg){.column-body}
+![ ](/Images/goya.jpg)
+
+‘A way of flying’, Francisco Goya, 1815--1820, Amsterdam, Rijksmuseum.
+:::
 
 <!-- Tufte-book.cls breaks when processing the line bellow:
 ![A way of flying](/Images/goya.jpg){.column-body #fig-goya}
@@ -97,7 +83,7 @@ Being a Babylonian enterprise, science has no clear path. One of the exciting fa
 
 Another example is Information Theory. Several insights of Shannon's theory of communication were generalisations of ideas already present in Telegraphy [@shannon1948]. New theories in artificial intelligence can, therefore, be developed from insights in the study of deep learning phenomena.[^5]
 
-### Bringing science to Computer Science {#sec:bringing_science}
+### Bringing science to Computer Science {#sec-bringing_science}
 
 Despite the name, Computer Science has been more mathematics than science. We, computer scientists, are very comfortable with theorems and proofs, not much with theories.
 

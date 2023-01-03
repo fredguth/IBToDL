@@ -1,0 +1,6 @@
+::: {.content-hidden}
+$$
+{{< include ../Tex/_math_commands.tex >}}
+$$
+
+:::

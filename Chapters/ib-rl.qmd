@@ -8,7 +8,7 @@ In [1.1], we show *why* to learn representations. In [1.2], we discuss *how* to 
 
 In [1.3], we finally present the IB Learning problem, its difference to the IB method, *how* to find good representations with it, and its strengths and weaknesses as a representation learning framework. Finally, we close the chapter with [1.10] that brings evidence that the IB framework can predict bounds on human learning.
 
-## Representation Learning {#sec:why_representation_learning}
+## Representation Learning {#sec-why_representation_learning}
 
 In our human experience, we know that a good representation of data is crucial for accomplishing tasks. The Hindu-Arabic numeral system advantages, for example, are so manifest that it has been adopted almost everywhere.
 
@@ -20,7 +20,7 @@ Consider the problem of Object Classification[^1]; each pixel depends on differe
 
 Over time, it became clear that the success of machine learning was so heavily dependent on appropriate features that finding them should also be part of the process of learning itself. Therefore, or is a set of techniques that allows a machine to learn features and use them to perform a specific task. Learned representations often result in better performance and flexibility, allowing a more straightforward adaptation of an AI system to new tasks, with the minimal human intervention  [@goodfellow:2016]. Furthermore, the recent success of Deep Learning, which is one of many ways to learn representations, has shown the power of this *encoder-decoder* scheme.
 
-## Desiderata for representations {#sec:desiderata}
+## Desiderata for representations {#sec-desiderata}
 
 What are good representations of the data? A good representation makes a subsequent learning task easier [@goodfellow:2016].  @achille:2017emergence [@achille:2017emergence] present a mathematical definition using information theory.
 
@@ -83,7 +83,7 @@ Although disentanglement may be an abstract characteristic not very well defined
 
 The only property of the desiderata that still does not correspond with learning algorithms is *minimality*. However, it is straightforward that a small sufficient representation has a smaller chance of containing spurious correlations, and it is more likely to generalise well. Minimal sufficient representations have no spurious factors that do not explain the variability of the observed data. As we will show, a representation is invariant only if it is also minimal.
 
-### Invariant if minimal {#sec:invariant_if_minimal}
+### Invariant if minimal {#sec-invariant_if_minimal}
 
 ::: theorem
 Let $\rvN$ be a nuisance for the target $\rvY$ and let $\rvZ$ be a sufficient representation of the input $\rvX$ w.r.t $\rvY$. Suppose that $\rvZ$ depends on $\rvN$ only through $\rvX$ ( i.e. , $\rvN \to \rvX \to \rvZ$). We also consider that $\rvX$ has all information about $\rvY$; therefore, we can say that it is a **deterministic function** of $\rvY$ and nuisances $\rvX:= f(\rvY; \rvN)$.
@@ -98,7 +98,7 @@ To say that $\rvZ$ is invariant if and only if it is minimal implies that $\IZN 
 :::
 
 ::: proof
-*Proof.* $$\begin{aligned}
+$$\begin{aligned}
 \begin{cases}
 \rvY, \rvN \to \rvX \to \rvZ \qquad &\text{(by definition)}\hfil\\
 I[\rvZ;\rvY,\rvN] \leq I[\rvZ;\rvX] \qquad &\text{(DPI)}\hfil\\
@@ -122,7 +122,7 @@ $I[\rvZ;\rvN] = I[\rvZ;\rvX] - \IXY -\epsilon, ~0 \leq \epsilon \leq H[\rvY|\rvX
 
 As a consequence of this proposition, it is possible to construct invariant representations, which will generalise well, by reducing the amount of information the representation $\rvZ$ contains about the input $\rvX$ while keeping $\IZY$, the amount of information we need for the task. As $H[\rvY] \ll H[\rvX]$ **the compressibility of the input determines generalisation**. Thus, it is independent on the hypothesis space of the learning algorithm.
 
-## IBT Learning Problem: Learning Approximately Minimal Sufficient Disentangled Representations {#sec:ibt_learning_problem}
+## IBT Learning Problem: Learning Approximately Minimal Sufficient Disentangled Representations {#sec-ibt_learning_problem}
 
 We have discussed what constitutes a good representation. This section is about finding such representations. For that, we will adjust the IB Problem Setting ([\[ib_problem_setting\]][2]) for supervised learning.[^6]
 
@@ -150,7 +150,7 @@ We have discussed what constitutes a good representation. This section is about 
           
     \end{aligned}$$
 
-### Assumptions {#sec:ibt_learning_assumptions}
+### Assumptions {#sec-ibt_learning_assumptions}
 
 i.  The random variables $\rvX$, $\rvY$ and $\rvZ$, are **discrete**;
 
@@ -225,7 +225,7 @@ $$\begin{aligned}
     &p_\theta(z)=\prod_j p_{\theta}(z_j).\\
     &\hat{\LH} = \hat H(p, p_{\theta}) + \beta^{-1} \KL(p_{\theta}(z|x)||p_{\theta}(z)) \qquad\text{Activations IB\label{activations_ib}}
     
-\end{aligned}$$[]{#sec:activations_lagrangian label="sec:activations_lagrangian"}
+\end{aligned}$$[]{#sec-activations_lagrangian label="sec:activations_lagrangian"}
 
 Where $\hat H(p, p_{\theta})$ is the cross-entropy, and the second term is a regulariser that penalises the transfer of information from $\rvX$ to $\rvZ$. In other words, the regulariser penalises complexity measured as $\IZX$. The usage of cross-entropy loss and this kind of regularisers is widespread in practice. Nevertheless,  @achille:2019phd gave theoretical ground for such choices[^13] [@achille:2019phd].
 
@@ -243,7 +243,7 @@ corollaryspecialib []{#th:specialib label="th:specialib"} Any learning algorithm
 is learning a minimal sufficient disentangled representation and, in fact, solving the IB learning problem.
 :::
 
-## The IB Achille's Heel {#sec:achilles_heel}
+## The IB Achille's Heel {#sec-achilles_heel}
 
 Achille and Soatto noticed a problem with the Activations IB, it is incomputable:
 
@@ -257,7 +257,7 @@ Achille and Soatto noticed a problem with the Activations IB, it is incomputable
 
 This realisation is very important. Many of the critiques on IBT (that we will see in [\[sec:ibt_criticism\]][4]) are due to not addressing it. Achille and Soatto not only acknowledged the problem but also proposed a solution ([1.6]). To explain how they arrive on that, we first need to explain how they analised the cross-entropy loss in an information-theoretical perspective.
 
-## Rethinking generalisation: Cross-entropy and overfitting {#sec:rethink_generalisation}
+## Rethinking generalisation: Cross-entropy and overfitting {#sec-rethink_generalisation}
 
 In previous sections, we derived the cross-entropy loss ([\[activations_ib\]][5]) from a list of desired properties for representations([1.2]). We also showed that generalisation relates to the compressibility of the input([1.2.1]).
 
@@ -274,7 +274,7 @@ Given $\rvD=(\rvX,\rvY),~ \rvD \sim P(\rvX, \rvY| \theta)$, and a representation
 :::
 
 ::: proof
-*Proof.* Notice that the output weight $\rvW$ of the training process can be seen as a random variable (that depends on the stochasticity of the initialisation, training steps, and the data); i.e. $\rvW$ is a representation of the dataset $\rvD$ and we can talk about $\IWD$.
+Notice that the output weight $\rvW$ of the training process can be seen as a random variable (that depends on the stochasticity of the initialisation, training steps, and the data); i.e. $\rvW$ is a representation of the dataset $\rvD$ and we can talk about $\IWD$.
 
 First, we show that minimising $H_{p,q}[y|x]$ is equivalent to minimising $H_{p,q}[x,y]$ $$\begin{aligned}
     min H_{p,q}[y|x,w] = min H_{p,q}[\rvD |\rvW].
@@ -348,7 +348,7 @@ memorisation:
 
 The optimiser will try to increase memorisation because it is the only negative term. Thus,  @achille:2017emergence propose a naïve method to eliminate this proneness to overfitting: adding back the memorisation term in the lossThus,  [@achille:2017emergence]. $$\LL(\rvW) = H_{p,q}[\rvD|\rvW] + I[\rvD;\rvW|\theta]$$ To calculate $I[\rvD;\rvW|\theta]$ true distribution, $p_\theta$ is needed. Nevertheless, we are just trying to approximate $p_\theta$ with $q$ during training. Hence we are presented with the *chicken-egg* problem. Rather, one can add a Lagrangian multiplier to upper bound $I[\rvD;\rvW|\theta]$: $$\LL(\rvW) = H_{p,q}[\rvD|\rvW] + \beta^{-1} I[\rvD;\rvW] \label{eq:weights_ib} \qquad\text{Weights IB}$$ Remarkably, this has the same form as the IB Lagrangian, [\[IB_Lagrangian\]][7]. When $\beta=1$, [\[eq:weights_ib\]][8] reduces to the [ELBO]{acronym-label="ELBO" acronym-form="singular+short"} loss used in variational inference [@achille:2019phd p. 53].
 
-## Two levels of representation {#sec:2_levels}
+## Two levels of representation {#sec-2_levels}
 
 Some criticism on [IBT]{acronym-label="IBT" acronym-form="singular+short"} derive from a lack of rigour in explaining the fundamentals (see [\[sec:ibt_criticism\]][4]).
 
@@ -369,7 +369,7 @@ Notice that we now have two Lagrangians. The original ([\[sec:activations_lagran
   \underset{q(\rvZ|\rvX)}{\min\LL(W)} = H_{p,q}[\rvY|\rvZ]& + \beta^{-1} \IZX \qquad\text{Activations IB}\\
   \underset{\text{dataset}}{D} \xrightarrow{\hspace*{1.4cm}}\underset{\hspace*{.15cm}\text{weights}\hspace*{.15cm}}{W}& \xrightarrow{\hspace*{1.4cm}}\underset{\text{real distribution}}{P(\rvY|\rvX)\hspace*{.5cm}}\\
   \underset{q(\rvD|\rvW)}{\min\LL(W)} = H_{p,q}[\rvD|\rvW]& +\beta^{-1} \IDW \qquad\text{Weights IB}\\
-\end{aligned}$$ []{#sec:duality label="sec:duality"}
+\end{aligned}$$ []{#sec-duality label="sec:duality"}
 
 Intuitively, there is a strong connection between *information in the weights* and *information in the activations*. $\IZX$, which measures the complexity of the activations representation, can be defined by the amount of weight in the network: low or zero weights will connect to the activations that are not in the optimal activation representation $z^*$, which minimises $\IZX$.
 
@@ -386,7 +386,7 @@ Besides, even without calculating the information in the weights one can control
 > --- Claude Shannon
 > :::
 
-## Shannon vs. Fisher Information {#sec:shannon_fisher}
+## Shannon vs. Fisher Information {#sec-shannon_fisher}
 
 We still have the problem that to calculate $\IXY$, we need to know $\PXY$. We can, however, bound the amount of information using Fisher Information [\[sec:fisher_information\]][10]. We use: $$\begin{aligned}
   \IXY=&\KL(P(\rvX,\rvY) \Vert P(\rvY)P(\rvX))\\
@@ -404,7 +404,7 @@ This assumption is quite interesting as it gives us an analytical and fast calcu
 \IZX \leq \IDW \leq \log |F(W^*)| \label{bounds}
 \end{aligned}$$ Even if the unknown distribution $P(D)$ is not an isotropic gaussian, we can think that near optima, it approximates one. We can arrive at the same result by approximating the Hessian with a Taylor expansion.
 
-## Connection to Variational Autoencoders {#sec:vae}
+## Connection to Variational Autoencoders {#sec-vae}
 
 @achille:2018infodropout show how the previous development relates with [VAEs]{acronym-label="VAE" acronym-form="plural+full"}  [@achille:2018infodropout]. [VAEs]{acronym-label="VAE" acronym-form="plural+full"}  [@kingma:2014] aim to reconstruct, given a training dataset $\mathcal{D}={x_i}$, a latent variable $z$. The paper proposes that this can be thought as generating $z$ through some unknown generative process $p_{\theta}(x|z)$. In practice, this is done by minimising: $$\begin{aligned}
               \LH = \frac{1}{N} \sum^{N} \E_{z \sim p_{\theta}(z|x_i)} - \log p_{\theta}(y_i|z) +  \KL (p_{\theta}(z|x_i)||\textstyle \prod_i p_{\theta}(z_i)).
@@ -443,7 +443,7 @@ Moreover, their objective can be written as  [@dziugaite:2017 sec. 6]: $$\begin
   \min \E_{W \sim \NN} L(W,S) + [w-w_0]^\top \diag(s) [w-w_0]
 \end{aligned}$$ where $s$ is the score function. In other words, they are calculating the diagonal of the Fisher Information Matrix as a regularizer.
 
-## Evidence of the IB limit in a human learned task {#sec:efficient_color_naming}
+## Evidence of the IB limit in a human learned task {#sec-efficient_color_naming}
 
  @zaslavsky:2018 [@zaslavsky:2018] had the sagacious idea of using the IB method to analyse anthropological evidence.
 
@@ -459,7 +459,7 @@ This analysis corroborates the current theory on human language evolution. Furth
 
 The hypothesis is that languages evolve to become more efficient in a tradeoff between conciseness (complexity, generalisation) and precision. The prediction capability is just an expected consequence of an efficient representation of meaning. The conciseness of the representation of knowledge, given an acceptable error margin, is a proxy of the agent's intelligence. The IB limit is an epistemic limit that is valid for machines, humans and aliens.
 
-## Concluding Remarks {#sec:conclusion-ibrl}
+## Concluding Remarks {#sec-conclusion-ibrl}
 
 This chapter presented the [IBT]{acronym-label="IBT" acronym-form="singular+short"} as a general representation learning theory (not specific to Deep Learning). The bulk of this chapter is based on works by Stefano Soatto and Alessandro Achille and their prolific research group  . , in particular, has been one of the biggest influences in this dissertation. It was presented in the same workshop[^21] where Tishby presented [IBT]{acronym-label="IBT" acronym-form="singular+short"} for the first time.
 
@@ -551,23 +551,23 @@ We took the liberty to add the assumption that constrains the problem to finite 
 [^22]: For example,  @alemi:2016 use differential entropy but do not address the fact that the IB Principle restrain itself to discrete random variables .
 
   [1]: #ch:ib_and_dl {reference-type="ref" reference="ch:ib_and_dl"}
-  [1.1]: #sec:why_representation_learning {reference-type="ref" reference="sec:why_representation_learning"}
-  [1.2]: #sec:desiderata {reference-type="ref" reference="sec:desiderata"}
-  [1.6]: #sec:2_levels {reference-type="ref" reference="sec:2_levels"}
-  [1.3]: #sec:ibt_learning_problem {reference-type="ref" reference="sec:ibt_learning_problem"}
-  [1.10]: #sec:efficient_color_naming {reference-type="ref" reference="sec:efficient_color_naming"}
+  [1.1]: #sec-why_representation_learning {reference-type="ref" reference="sec:why_representation_learning"}
+  [1.2]: #sec-desiderata {reference-type="ref" reference="sec:desiderata"}
+  [1.6]: #sec-2_levels {reference-type="ref" reference="sec:2_levels"}
+  [1.3]: #sec-ibt_learning_problem {reference-type="ref" reference="sec:ibt_learning_problem"}
+  [1.10]: #sec-efficient_color_naming {reference-type="ref" reference="sec:efficient_color_naming"}
   [2]: #ib_problem_setting {reference-type="ref" reference="ib_problem_setting"}
-  [3]: #sec:IB_principle {reference-type="ref" reference="sec:IB_principle"}
-  [4]: #sec:ibt_criticism {reference-type="ref" reference="sec:ibt_criticism"}
+  [3]: #sec-IB_principle {reference-type="ref" reference="sec:IB_principle"}
+  [4]: #sec-ibt_criticism {reference-type="ref" reference="sec:ibt_criticism"}
   [5]: #activations_ib {reference-type="ref" reference="activations_ib"}
-  [1.2.1]: #sec:invariant_if_minimal {reference-type="ref" reference="sec:invariant_if_minimal"}
-  [6]: #sec:cross-entropy {reference-type="ref" reference="sec:cross-entropy"}
+  [1.2.1]: #sec-invariant_if_minimal {reference-type="ref" reference="sec:invariant_if_minimal"}
+  [6]: #sec-cross-entropy {reference-type="ref" reference="sec:cross-entropy"}
   [7]: #IB_Lagrangian {reference-type="ref" reference="IB_Lagrangian"}
   [8]: #eq:weights_ib {reference-type="eqref" reference="eq:weights_ib"}
-  [9]: #sec:activations_lagrangian {reference-type="ref" reference="sec:activations_lagrangian"}
-  [10]: #sec:fisher_information {reference-type="ref" reference="sec:fisher_information"}
+  [9]: #sec-activations_lagrangian {reference-type="ref" reference="sec:activations_lagrangian"}
+  [10]: #sec-fisher_information {reference-type="ref" reference="sec:fisher_information"}
   [11]: #eq:weights_ib {reference-type="ref" reference="eq:weights_ib"}
-  [1.3.2]: #sec:ibt_learning_assumptions {reference-type="ref" reference="sec:ibt_learning_assumptions"}
+  [1.3.2]: #sec-ibt_learning_assumptions {reference-type="ref" reference="sec:ibt_learning_assumptions"}
   [12]: #free-D {reference-type="ref" reference="free-D"}
   [13]: #eq:pacbayes {reference-type="ref" reference="eq:pacbayes"}
   [14]: #fig:efficient_colornaming_result {reference-type="ref" reference="fig:efficient_colornaming_result"}

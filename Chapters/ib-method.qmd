@@ -6,7 +6,7 @@ Contrarily, @tishby:1999 argue in [@tishby:1999] that lossy source compression
 
 This chapter will present the Information Bottleneck Principle, the foundation of the emergent theory subject of this dissertation. The IB principle approach is related to [RDT]{acronym-label="RDT" acronym-form="singular+full"}. Hence, first we will briefly overview RDT as @tishby:1999 describe it [@tishby:1999; @slonim:2002]. Then, we will formally present the IB Principle, its problem setting and analytical solution, and show how it can be seen as a particular case of [RDT]{acronym-label="RDT" acronym-form="singular+long"}.
 
-## Rate-Distortion Theory: relevance through a distortion function {#sec:RDT}
+## Rate-Distortion Theory: relevance through a distortion function {#sec-RDT}
 
 We know from [\[eq:shannon_1st_law\]][2] that for any rate $R \leq \HX$ there will be a loss in the reconstructed signal. [RDT]{acronym-label="RDT" acronym-form="singular+full"} addresses the problem of determining the rate $R$ that should be communicated over a channel so that the source (input signal $\rvX$) can be approximately reconstructed without exceeding an expected distortion.
 
@@ -44,7 +44,7 @@ Consequently, we are assuming that the definition of relevance is part of the pr
 
 As we will see further ([1.2]), @tishby:1999 [@tishby:1999] propose a way to cope with this potential pitfall.
 
-### [RDT]{acronym-label="RDT" acronym-form="singular+short"} as a variational problem {#sec:RDT_problem}
+### [RDT]{acronym-label="RDT" acronym-form="singular+short"} as a variational problem {#sec-RDT_problem}
 
 ::: definition
 The **rate-distortion function**, denoted by $R(D)$ is defined as: $$\begin{aligned}
@@ -76,7 +76,7 @@ Instead of solving the minimisation problem in [\[rate-distortion function\]][6]
 
 This is an implicit solution[^6] as $p(z)$ on the right-hand side of [\[exponential-form\]][7] depends on $p(z|x)$[^7].
 
-## The IB Principle: relevance through a target variable {#sec:IB_principle}
+## The IB Principle: relevance through a target variable {#sec-IB_principle}
 
 The problem of extracting what is relevant from data depends on a suitable definition of relevance. The main weakness of the [RDT]{acronym-label="RDT" acronym-form="singular+short"} approach is that it addresses relevance through a distortion function that is not related to a specific task at hand.
 
@@ -134,7 +134,7 @@ The representation is **minimal** if it is the smallest among all possible repre
 
 Therefore, we can say that the information bottleneck is the problem of finding the *minimum sufficient statistics* of the random variable $\rvX$ w.r.t $\rvY$, and therefore, IB Lagrangian gives the minimum approximately sufficient statistic.
 
-## The IB Curve {#sec:ib_functional}
+## The IB Curve {#sec-ib_functional}
 
 As in RDT, the compactness of the representation is measured by $I[\rvZ;\rvX]$. The distortion upper bound constraint, however, is replaced by a lower bound constraint over the *relevant information*, $I[\rvZ;\rvY]$ [@shamir:2010].
 
@@ -153,11 +153,11 @@ A straightforward observation is that the Markovian relation characterises $p(z)
     \end{cases}
 \end{aligned}$$
 
-### The information plane {#sec:information-plane}
+### The information plane {#sec-information-plane}
 
 Moreover, the plane where the horizontal axis corresponds to $I[\rvZ;\rvX]$ and the vertical axis to $I[\rvZ;\rvY]$, named **information plane** (see [\[fig:information-plane\]][9]) is the natural equivalent to the distortion-compression plane in [RDT]{acronym-label="RDT" acronym-form="singular+long"} ([\[fig:distortion-compression-plane\]][4]). Let the pair ${R, \Iy}$ denote some levels of compression and relevant information, respectively. If this pair is located below the curve, some compressed representation $\rvZ$ has a compression level $R=I[\rvZ;\rvX]$ and relevant information $\Iy=I[\rvZ;\rvY]$. The points laying on the IB Curve are the optimal representations for a certain level of relevant-information (or precision) $\Iy$ or a certain level of compression (or complexity) $R$.
 
-## The IB Lagrangian {#sec:ib_problem_relaxation}
+## The IB Lagrangian {#sec-ib_problem_relaxation}
 
 The Lagrangian relaxation of the IB functional is also a variational problem:
 
@@ -165,11 +165,11 @@ $$\begin{aligned}
     \LH_{\beta}^{\text{(IB)}}[p(z|x)] = \IZX - \beta \IZY, \label{IB_Lagrangian}
 \end{aligned}$$ where $\beta$ is the Lagrangian multiplier attached to the constrained relevant information [@tishby:1999].
 
-At $\beta=0$, no feature of the signal is relevant, and all messages are quantised (compressed) to a single point. At $\beta=\infty$, the solution is pushed toward arbitrarily detailed quantisation (no compression). "By varying the (only) parameter, $\beta$, one can explore the tradeoff between the preserved meaningful information and compression at various resolutions" [@tishby:1999].[]{#sec:resolution label="sec:resolution"}
+At $\beta=0$, no feature of the signal is relevant, and all messages are quantised (compressed) to a single point. At $\beta=\infty$, the solution is pushed toward arbitrarily detailed quantisation (no compression). "By varying the (only) parameter, $\beta$, one can explore the tradeoff between the preserved meaningful information and compression at various resolutions" [@tishby:1999].[]{#sec-resolution label="sec:resolution"}
 
 Unlike the [RDT]{acronym-label="RDT" acronym-form="singular+short"} problem ([1.1.3]), in the IB problem, the constraint on the meaningful information is *nonlinear* in the mapping $p(z|x)$, and it is a much harder variational problem. Notably, there is an analytical solution for IB Lagrangian ([\[IB_Lagrangian\]][10]). However, for the sake of clarity, before deriving this exact solution, we will show how IB can be seen as a particular case of [RDT]{acronym-label="RDT" acronym-form="singular+short"}. This development will further help us to derive the analytical solution more directly.
 
-## IB problem as a particular case of the RDT problem {#sec:IB_special_RDT}
+## IB problem as a particular case of the RDT problem {#sec-IB_special_RDT}
 
 From the [DPI]{acronym-label="DPI" acronym-form="singular+full"} ([\[sec:dpi\]][11]), $$\begin{aligned}
     I[\rvX;\rvY] \geq I[\rvZ;\rvY].
@@ -182,7 +182,7 @@ If $\langle d[x;z] \rangle_{p(x,z)}=I[\rvX;\rvY]-I[\rvZ;\rvY]$, then $\\d[x;z] =
 :::
 
 ::: proof
-*Proof.* $$\begin{aligned}
+$$\begin{aligned}
         &\langle d[x;z] \rangle_{p(x,z)} =I[\rvX;\rvY]-I[\rvZ;\rvY]\nonumber\\
         &=\sum_{x,y} p(x, y) \log \frac{p(x,y)}{p(x) p(y)} - \sum_{z,y} p(z, y) \log \frac{p(z,y)}{p(z) p(y)}.
     
@@ -229,7 +229,7 @@ characterises the general form of the optimal solution to the rate-distortion pr
 :::
 
 ::: proof
-*Proof.* Apply $d[x;z] = \KL{\left(~p(y|x)~ ||~ p(y|z)~ \right)}$ to . ◻
+Apply $d[x;z] = \KL{\left(~p(y|x)~ ||~ p(y|z)~ \right)}$ to . ◻
 :::
 
 ## Concluding Remarks
@@ -264,22 +264,22 @@ Despite the similarities with the supervised learning problem ([\[sec:mlt_proble
 
 [^12]: The analytical solution to the IB problem is sometimes called the self-consistent equations.
 
-  [1]: #sec:communication_problem_setting {reference-type="ref" reference="sec:communication_problem_setting"}
+  [1]: #sec-communication_problem_setting {reference-type="ref" reference="sec:communication_problem_setting"}
   [2]: #eq:shannon_1st_law {reference-type="ref" reference="eq:shannon_1st_law"}
   [3]: #noisy_channel_theorem {reference-type="ref" reference="noisy_channel_theorem"}
-  [1.2]: #sec:IB_principle {reference-type="ref" reference="sec:IB_principle"}
+  [1.2]: #sec-IB_principle {reference-type="ref" reference="sec:IB_principle"}
   [4]: #fig:distortion-compression-plane {reference-type="ref" reference="fig:distortion-compression-plane"}
   [5]: #shannon_laws {reference-type="ref" reference="shannon_laws"}
   [6]: #rate-distortion function {reference-type="eqref" reference="rate-distortion function"}
   [7]: #exponential-form {reference-type="ref" reference="exponential-form"}
   [8]: #fig:ib_problem_setting {reference-type="ref" reference="fig:ib_problem_setting"}
   [9]: #fig:information-plane {reference-type="ref" reference="fig:information-plane"}
-  [1.1.3]: #sec:RDT_problem {reference-type="ref" reference="sec:RDT_problem"}
+  [1.1.3]: #sec-RDT_problem {reference-type="ref" reference="sec:RDT_problem"}
   [10]: #IB_Lagrangian {reference-type="ref" reference="IB_Lagrangian"}
-  [11]: #sec:dpi {reference-type="ref" reference="sec:dpi"}
+  [11]: #sec-dpi {reference-type="ref" reference="sec:dpi"}
   [12]: #observation {reference-type="ref" reference="observation"}
   [1.2.1]: #ib_problem_setting {reference-type="ref" reference="ib_problem_setting"}
-  [1.4]: #sec:ib_problem_relaxation {reference-type="ref" reference="sec:ib_problem_relaxation"}
-  [1.3.1]: #sec:information-plane {reference-type="ref" reference="sec:information-plane"}
-  [1.5]: #sec:IB_special_RDT {reference-type="ref" reference="sec:IB_special_RDT"}
-  [13]: #sec:mlt_problem {reference-type="ref" reference="sec:mlt_problem"}
+  [1.4]: #sec-ib_problem_relaxation {reference-type="ref" reference="sec:ib_problem_relaxation"}
+  [1.3.1]: #sec-information-plane {reference-type="ref" reference="sec:information-plane"}
+  [1.5]: #sec-IB_special_RDT {reference-type="ref" reference="sec:IB_special_RDT"}
+  [13]: #sec-mlt_problem {reference-type="ref" reference="sec:mlt_problem"}

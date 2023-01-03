@@ -10,21 +10,21 @@ book:
   output-file: IBToDL
   author: Fred Guth
   publisher: Universidade de Brasília
-  date: "20/02/2022"
+  date: 20/02/2022
   chapters:
     - index.qmd
     # - Front/copyright.qmd
     # - Front/dedication.qmd
     # - Front/ack.qmd
     # - Front/epigraph.qmd
-    - Chapters/context.qmd
+    - Chapters/intro.qmd
     - part: Background
       chapters:
         - Chapters/ai.qmd
-        # - Chapters/prob.qmd
-    #     - Chapters/mlt.qmd
+        - Chapters/prob.qmd
+        - Chapters/mlt.qmd
     #     - Chapters/info.qmd
-    # - part: intermezzo.qmd
+    # - part: Chapters/intermezzo.qmd
     # - part: A new theory
     #   chapters: 
     #     - Chapters/ib-method.qmd
@@ -34,13 +34,16 @@ book:
     # - Back/notation.qmd
     # - Back/acronyms.qmd
     # - Back/colophon.qmd
-    - part: Tufte-Quarto
-      chapters:
-      - Back/quarto-questions.qmd
-      - Back/todo.qmd
+    # - part: Tufte-Quarto
+    #   chapters:
+    #   - Back/quarto-questions.qmd
+    #   - Back/todo.qmd
 
 format: # specific to my dissertation
     html:
+      # number-sections: true
+      crossref:
+        chapters: true
       default-image-extension: svg
       open-graph: true
       site-url: https://fredguth.github.io/IBToDL/
@@ -57,13 +60,16 @@ format: # specific to my dissertation
             href: https://github.com/fredguth/IBToDL/
             aria-label: IBToDL on GitHub
       html-math-method: mathjax
-      include-in-header:
-        - "Tex/_dollar.tex" # hack for macros in html https://github.com/quarto-dev/quarto-cli/discussions/2845
-        - "Tex/math_macros.tex"
-        - "Tex/_dollar.tex" # hack for macros in html https://github.com/quarto-dev/quarto-cli/discussions/2845
+      # include-in-header:
+        # - "Tex/_dollar.tex" # hack for macros in html https://github.com/quarto-dev/quarto-cli/discussions/2845
+        # - "Tex/math_commands.tex"
+        # - "Tex/_dollar.tex" # hack for macros in html https://github.com/quarto-dev/quarto-cli/discussions/2845
       include-after-body:
         - js.html
     pdf:
+      # number-sections: true
+      crossref:
+        chapters: true
       default-image-extension: pdf
       classoption: ["12pt", "british"]
       include-in-header:

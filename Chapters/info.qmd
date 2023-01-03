@@ -2,7 +2,7 @@
 
 This chapter derives Shannon Information from Probability Theory, explicates some implicit assumptions in the usage of Shannon Information, and explains basic Information Theory concepts.
 
-## From Probability to Information {#sec:prob2info}
+## From Probability to Information {#sec-prob2info}
 
 In [\[sec:anatomy_ia\]][1], we exposed that an agent updates its model of the environment from sensory data, experience. We have also shown how this update happens; a sceptical agent *proportions her beliefs to the evidence* according to Bayes' theorem.
 
@@ -62,7 +62,7 @@ Delightfully, our definition of *hidden information* that reduces the uncertaint
 
 In [IT]{acronym-label="IT" acronym-form="singular+full"}, self-information is defined as the entropy contribution of an individual message (or symbol); in other words, how much an individual *event* can attain uncertainty reduction. This uncertainty reduction is what we derived.
 
-**Shannon's information can be derived from probability theory.**[]{#sec:probability2information label="sec:probability2information"}$\qedhere$
+**Shannon's information can be derived from probability theory.**[]{#sec-probability2information label="sec:probability2information"}$\qedhere$
 
 ## Shannon's Mathematical Theory of Communication
 
@@ -76,7 +76,7 @@ iii. There is an encoding that allows **lossless** communication trough a **nois
 
 The idea of transmitting information with zero error through a noisy channel is not intuitive, and its theoretical proof was an unexpected result. In the following sections, we will explain the concepts of [IT]{acronym-label="IT" acronym-form="singular+short"} that allow us to comprehend these *laws of information*.
 
-### The communication problem setting {#sec:communication_problem_setting}
+### The communication problem setting {#sec-communication_problem_setting}
 
 Shannon deliberately chose not to deal with fuzzy concepts as intelligence or meaning:
 
@@ -150,7 +150,7 @@ If the factor is a measure of the reduction in freedom of choice, the factor is 
 
 As we already had derived in [\[sec:probability2information\]][12].
 
-### Entropy {#sec:entropy}
+### Entropy {#sec-entropy}
 
 In practice, however, we are not usually interested in the information of a particular outcome, but in how surprised, on average, we will expect to be with the entire set of possible outcomes.
 
@@ -300,7 +300,7 @@ The average encoding size per message symbol in $\enc'$ is: $$\begin{aligned}
     &\approx 1.5 \frac{\text{ bits}}{\text{symbol}}
 \end{aligned}$$
 
-### Cross-Entropy {#sec:cross-entropy}
+### Cross-Entropy {#sec-cross-entropy}
 
 This average encoding size per message symbol has a special name: the Cross-Entropy. It is evident the similarity of the definition of Cross-Entropy and Entropy. If our model $q$ of the real distribution $p$ is absolute right ($p=q$), the Cross-Entropy is equal to the Entropy $H_{p,q}=H_p$. If not (as it is in most cases), $H_{p,q} > H_p$.
 
@@ -335,7 +335,7 @@ In our example: $$\begin{aligned}
     \KL(p_{\text{the Atacama}}||q_{\text{London}}) = \underbrace{H_{p,q}[\src'']}_{\approx 4.8} - \underbrace{H_p[\src'']}_{\approx 2.8} \approx 2 \frac{\text{bits}}{\text{symbol}}
 \end{aligned}$$
 
-### Shannon's source encoding theorem {#sec:source_encoding_theorem}
+### Shannon's source encoding theorem {#sec-source_encoding_theorem}
 
 Now that we understand how the source encoding works, let us take a moment to appreciate the geniality of Shannon. Here, we show how he demonstrated the size of the optimal encoding without ever explaining which encoding is that in the first place.
 
@@ -344,7 +344,7 @@ theoremsourceencodingtheorem []{#th:source_encoding label="th:source_encoding"} 
 :::
 
 ::: proof
-*Proof.* A one-to-one mapping $\srcblk \mapsto \enc^{k}$ is invertible. If we enumerate all elements of $\srcblk$ in binary, we will need $k$ bits. Thus, with absolute certainty: $$\begin{aligned}
+ A one-to-one mapping $\srcblk \mapsto \enc^{k}$ is invertible. If we enumerate all elements of $\srcblk$ in binary, we will need $k$ bits. Thus, with absolute certainty: $$\begin{aligned}
         k\leq \log \lceil|\srcblk |\rceil = \log \lceil 2^{n \log |\srcalph|}\rceil = n \log |\srcalph|+1~\text{ bits}\label{eq:k_upper bound}
     
 \end{aligned}$$ Can we do better? We know from statistics that most possible outcomes are unlikely. In other words, there is a small set of very likely outcomes that are most probable. So let us use this property of Nature.
@@ -387,7 +387,7 @@ Now, we need to find $|\typicalset|$. For this, we will use the [AEP]{acronym-la
 :::
 
 ::: proof
-*Proof.* From the theorem definition, $\src_i$ are independent. Then from the Product Rule (eq. [\[eq:Product_Rule\]][22]): $$\begin{aligned}
+ From the theorem definition, $\src_i$ are independent. Then from the Product Rule (eq. [\[eq:Product_Rule\]][22]): $$\begin{aligned}
             - \frac{1}{n} \sum_{i=1}^{n} \log P(\underbrace{\src_1, \cdots, \src_n}_{\srcblk}) &\overset{\text{~eq.\ref{eq:Product_Rule}}}{=} -\frac{1}{n} \log(\prod_{i=1}^{n} \cancelto{p(\srcsymb)}{P(\src_i))}\\
             &=\frac{1}{n} \sum_{i=1}^{n} -\log p(\srcsymb)
         
@@ -558,7 +558,7 @@ For a visual understanding of these measures, see [\[fig:mutual\]][30]. The mutu
     I[\enc;\dec] = \KL(p(\encsymb, \decsymb)||p(\encsymb)p(\decsymb)).
 \end{aligned}$$
 
-### Data Processing Inequality {#sec:dpi}
+### Data Processing Inequality {#sec-dpi}
 
 We cannot increase information by applying a deterministic function to the data, nor decrease information if the deterministic function is invertible.
 
@@ -573,7 +573,7 @@ Let three random variables form the Markov chain $\rvX \rightarrow \rvY \rightar
 :::
 
 ::: proof
-*Proof.* We refer to [@cover:2006 th.2.8.1] for proof. ◻
+ We refer to [@cover:2006 th.2.8.1] for proof. ◻
 :::
 
 ::: theorem
@@ -581,7 +581,7 @@ Let $\rvX \rightarrow \rvY \rightarrow \rvZ$ form a Markov Chain, then functions
 :::
 
 ::: proof
-*Proof.* $\rvZ=g(\rvY) \therefore I[\rvX;g(\rvY)]=I[\rvX;\rvZ]$. By the [DPI]{acronym-label="DPI" acronym-form="singular+full"} property: $$\begin{aligned}
+ $\rvZ=g(\rvY) \therefore I[\rvX;g(\rvY)]=I[\rvX;\rvZ]$. By the [DPI]{acronym-label="DPI" acronym-form="singular+full"} property: $$\begin{aligned}
         I[\rvX;\rvY] &\geqslant I[\rvX;\rvZ]\\
         I[\rvX;\rvY] &\geqslant I[\rvX;g(\rvY)]
     
@@ -645,7 +645,7 @@ We can rewrite [\[eq:shannon_1st_law\]][33] as: $$\begin{aligned}
 
 Even before Shannon's , other information measures have been defined and studied. In this section we will expose two other notions of information that we will use further in the dissertation: Algorithmic information and Fisher information.
 
-### Algorithmic information (Kolmogorov-Chaitin complexity) {#sec:k-c_complexity}
+### Algorithmic information (Kolmogorov-Chaitin complexity) {#sec-k-c_complexity}
 
 Developed independently by Chaitin, Solomonoff, and Kolmogorov in the $1960$s, *algorithmic information* (most commonly known as Kolmogorov complexity) of an object (a message) is the length of the shortest program capable of producing the object as an output [@stone:2015].
 
@@ -662,7 +662,7 @@ versus
 
 If the object is compressable (shorter program), it has more regularity. Thus, there is a relation between complexity and compressibility.
 
-### Fisher Information {#sec:fisher_information}
+### Fisher Information {#sec-fisher_information}
 
 Let $P_{\theta}$ denote a family of parametric distributions on a space $\XX$ with probability mass or density function given by $p_{\theta}$.
 
@@ -742,7 +742,7 @@ This chapter derived the *information* measure from its definition and then summ
 
     4.  Labels may assume non-deterministic values (an encoder/decoder can be stochastic or deterministic).
 
-### The first comparison between MLT and IT {#sec:first_comparison}
+### The first comparison between MLT and IT {#sec-first_comparison}
 
 At this point, we have not yet expressed the Machine Learning Problem as an Information Theory problem. Still, as [MLT]{acronym-label="MLT" acronym-form="singular+short"} and [IT]{acronym-label="IT" acronym-form="singular+short"} both share *Bayesian inference* as the basis they do not invalidate each other. Both may have found the same truths by different paths.
 
@@ -791,26 +791,26 @@ The main differences in [IT]{acronym-label="IT" acronym-form="singular+short"} f
 
 [^21]: In the communication setting, we usually want to know the residual information in $\dec$ that is not from $\enc, H[\dec|\enc]$, which we call noise.
 
-  [1]: #sec:anatomy_ia {reference-type="ref" reference="sec:anatomy_ia"}
-  [2]: #sec:independent_events {reference-type="ref" reference="sec:independent_events"}
-  [3]: #sec:desiderata_language_sceptical, consistency {reference-type="ref" reference="sec:desiderata_language_sceptical, consistency"}
+  [1]: #sec-anatomy_ia {reference-type="ref" reference="sec:anatomy_ia"}
+  [2]: #sec-independent_events {reference-type="ref" reference="sec:independent_events"}
+  [3]: #sec-desiderata_language_sceptical, consistency {reference-type="ref" reference="sec:desiderata_language_sceptical, consistency"}
   [4]: #eq:likelihood {reference-type="ref" reference="eq:likelihood"}
   [5]: #consistency {reference-type="ref" reference="consistency"}
   [6]: #axiom:order {reference-type="ref" reference="axiom:order"}
   [7]: #eq:i_equals_log_LH {reference-type="ref" reference="eq:i_equals_log_LH"}
   [8]: #eq:is_ln {reference-type="ref" reference="eq:is_ln"}
   [9]: #fig:communication_setting {reference-type="ref" reference="fig:communication_setting"}
-  [1.1]: #sec:prob2info {reference-type="ref" reference="sec:prob2info"}
+  [1.1]: #sec-prob2info {reference-type="ref" reference="sec:prob2info"}
   [10]: #def:information {reference-type="ref" reference="def:information"}
   [11]: #fig: branching {reference-type="ref" reference="fig: branching"}
-  [12]: #sec:probability2information {reference-type="ref" reference="sec:probability2information"}
+  [12]: #sec-probability2information {reference-type="ref" reference="sec:probability2information"}
   [13]: #fig:360k, fig:27k, fig:5k {reference-type="ref" reference="fig:360k, fig:27k, fig:5k"}
-  [1.5.6]: #sec:source_encoding_theorem {reference-type="ref" reference="sec:source_encoding_theorem"}
+  [1.5.6]: #sec-source_encoding_theorem {reference-type="ref" reference="sec:source_encoding_theorem"}
   [14]: #fig:tube {reference-type="ref" reference="fig:tube"}
   [15]: #fig:information_loss {reference-type="ref" reference="fig:information_loss"}
   [16]: #fig:resource_waste {reference-type="ref" reference="fig:resource_waste"}
   [17]: #example_encoding {reference-type="eqref" reference="example_encoding"}
-  [18]: #sec:uniform_distribution {reference-type="ref" reference="sec:uniform_distribution"}
+  [18]: #sec-uniform_distribution {reference-type="ref" reference="sec:uniform_distribution"}
   [19]: #fig:equi_tree {reference-type="ref" reference="fig:equi_tree"}
   [20]: #fig:typical_atypical {reference-type="ref" reference="fig:typical_atypical"}
   [21]: #eq:k_upper bound {reference-type="eqref" reference="eq:k_upper bound"}
@@ -831,12 +831,12 @@ The main differences in [IT]{acronym-label="IT" acronym-form="singular+short"} f
   [35]: #evidence_comparisson {reference-type="eqref" reference="evidence_comparisson"}
   [1.3.1]: #guessing_game {reference-type="ref" reference="guessing_game"}
   [36]: #def:intelligence {reference-type="ref" reference="def:intelligence"}
-  [37]: #sec:desiderata_language_sceptical {reference-type="ref" reference="sec:desiderata_language_sceptical"}
+  [37]: #sec-desiderata_language_sceptical {reference-type="ref" reference="sec:desiderata_language_sceptical"}
   [38]: #beliefs {reference-type="ref" reference="beliefs"}
   [39]: #common_sense {reference-type="ref" reference="common_sense"}
-  [40]: #sec:desiderata_language {reference-type="ref" reference="sec:desiderata_language"}
+  [40]: #sec-desiderata_language {reference-type="ref" reference="sec:desiderata_language"}
   [41]: #rational_minimality {reference-type="ref" reference="rational_minimality"}
   [42]: #itm:finite_sets,itm:ergodic {reference-type="ref" reference="itm:finite_sets,itm:ergodic"}
   [43]: #ch:intermezzo {reference-type="ref" reference="ch:intermezzo"}
-  [44]: #sec:sceptical_agents {reference-type="ref" reference="sec:sceptical_agents"}
+  [44]: #sec-sceptical_agents {reference-type="ref" reference="sec:sceptical_agents"}
   [45]: #ch:mlt {reference-type="ref" reference="ch:mlt"}

@@ -12,7 +12,7 @@ The [IBT]{acronym-label="IBT" acronym-form="singular+short"} perspective has a h
 
 [IBT]{acronym-label="IBT" acronym-form="singular+short"} assumes that [DNN]{acronym-label="DNN" acronym-form="singular+short"} layers are random variables that form a Markov chain from the target variable to the prediction. Each layer is a representation $\rvZ_i$ of the input at a different "resolution"/abstraction ([\[sec:resolution\]][3]). These representations act like bottlenecks in the input-output channel. Thus, each bottleneck defines a unique encoder/decoder scheme.
 
-### [SGD]{acronym-label="SGD" acronym-form="singular+short"} in [IBT]{acronym-label="IBT" acronym-form="singular+short"} {#sec:SGD_in_IBT}
+### [SGD]{acronym-label="SGD" acronym-form="singular+short"} in [IBT]{acronym-label="IBT" acronym-form="singular+short"} {#sec-SGD_in_IBT}
 
 One of the most contentious topics in [IBT]{acronym-label="IBT" acronym-form="singular+short"} is the assumption that $q(z|x)$ and $q(y|z)$ are stochastic. Noise plays a very important role in training  [@hinton:1993; @achille:2017emergence; @kingma:2015]. In [IBT]{acronym-label="IBT" acronym-form="singular+short"}, noise reduces capacity and, therefore, the size of the typical hypothesis space (as it will be shown in [1.5.2]).
 
@@ -50,7 +50,7 @@ This is what motivated  @shwartz-ziv:2017 [@shwartz-ziv:2017], according to Ti
 
 The result was visually appealing ([\[fig:ib-mean-variation\]][9]). It clearly shows a *phase transition* during training ([\[fig:phase_transition_tishby15\]][10]).
 
-### IBT's main thesis {#sec:ibt_thesis}
+### IBT's main thesis {#sec-ibt_thesis}
 
 In Tishby's words, [IBT]{acronym-label="IBT" acronym-form="singular+short"} main thesis can be summed up as *"learning is forgetting"*[^3]. More specifically, deep learning has two distinct training phases:
 
@@ -60,7 +60,7 @@ In Tishby's words, [IBT]{acronym-label="IBT" acronym-form="singular+short"} main
 
 In statistical mechanics, phase transitions relate to abrupt changes in the properties of a system at the macroscopic level, in the same way as seen in [\[fig:ib-mean-variation\]][9]. With that in mind,  @shwartz-ziv:2017 claim that the compression phase can be described by Focker-Plank diffusion equations from Physics. This was indeed later corrobored by  @chaudhari:2018SGD , but  @shwartz-ziv:2017 failed to support the claim that [DNNs]{acronym-label="DNN" acronym-form="plural+short"} can be seen as physical systems.
 
-### Criticism to IBT's main thesis {#sec:ibt_criticism}
+### Criticism to IBT's main thesis {#sec-ibt_criticism}
 
 Shortly after its publication,  @shwartz-ziv:2017 [@shwartz-ziv:2017] were challenged by  @saxe:2018 [@saxe:2018], who claimed that they could not replicate the experiment and argued that the binning procedure to estimate mutual information was inexact. Due to the fact that the activation function can be an invertible transformation (deterministic mapping) of the input, by [RI]{acronym-label="RI" acronym-form="singular+full"}, the true mutual information between $I[\rvX;\rvZ_L]$ is provably infinite for continuous distributions and constant (equal to $H[\rvX]$) for discrete ones. They also point out that a user-selected binning strategy leads to arbitrary values of mutual information in the plotted results. Overall,  @saxe:2018 refute  @shwartz-ziv:2017 results.
 
@@ -76,7 +76,7 @@ Besides, to prove this theoretical result, they created a variational method (eq
 
 ## IB-based Deep Learning applications: training and algorithms
 
-### [DVIB]{acronym-label="DVIB" acronym-form="singular+full"} {#sec:dvib}
+### [DVIB]{acronym-label="DVIB" acronym-form="singular+full"} {#sec-dvib}
 
 A common criticism on [IBT]{acronym-label="IBT" acronym-form="singular+short"} was related to difficulties in calculating mutual information ([1.3.4]). [DVIB]{acronym-label="DVIB" acronym-form="singular+short"} not only describes a loss metric that takes advantage of IB properties but also defines state-of-the-art approximations of $\IXZ$ and $\IZY$ [@alemi:2016].
 
@@ -156,7 +156,7 @@ Another assumption of [IBT]{acronym-label="IBT" acronym-form="singular+short"} l
 
 An important theoretical discussion specific to Deep Learning that has not been addressed yet is about the role of layers. This will be the subject of [1.5.2].
 
-### A new narrative {#sec:narrative}
+### A new narrative {#sec-narrative}
 
 According to @goodfellow:2016 [@goodfellow:2016], Deep Learning success is ascribed to several pleasant features for which our current understanding is largely empirical. Here, we use most crucial strength, its narrative, to give theoretical ground to some [DL]{acronym-label="DL" acronym-form="singular+short"} phenomena.
 
@@ -196,13 +196,13 @@ During the first phase, with a sensory deficit, the network is obliged to cross 
 
 This will be explained in a section of its own ([1.5.2])
 
-### The role of layers in deep learning {#sec:layers}
+### The role of layers in deep learning {#sec-layers}
 
 Why do we need multiple layers in a neural network? This question is fundamental in Deep Learning, and still, there is no definitive answer. A feedforward network with a single layer can represent any function [@goodfellow:2016]. Also, @leshno:1993 [@leshno:1993] (as cited by  [@goodfellow:2016]) demonstrated that shallow networks with rectified linear units as activation functions have universal approximation properties. When confronted with these facts, the usual answer for the need for depth is that these results require an infeasible large layer or do not address efficiency. Another common answer is that layers provide levels of abstraction and a paramount composability property, stacking layers allow a network to represent functions of increasing complexity [@goodfellow:2016]. These answers seem correct but, at the same time, somewhat qualitative and vague.
 
 This section will try to advance the discussion by answering the need for depth in Neural Networks with an Information Bottleneck perspective. @shwartz-ziv:2017 have provided an explanation based in Physics [@shwartz-ziv:2017]. Here we will not use such correspondence.
 
-#### The IBT perspective and its weakness {#sec:achille_proof_critique}
+#### The IBT perspective and its weakness {#sec-achille_proof_critique}
 
 We have already established that a DNN optimised with SGD solves an [IB]{acronym-label="IB" acronym-form="singular+short"} problem. In this view, the body of the network is an encoder that compresses the input $\rvX$ into a representation $\rvZ$. In the IBT perspective, training a DNN is finding the encoder that minimises $\IZX$, while keeping $\IZY$: $$\begin{aligned}
     Q(\rvZ|\rvX) := \underset{p(z|x)}\argmin ~\IZX \\
@@ -234,7 +234,7 @@ Now, if $C$ is a network that stacks a layer on $A$, the last layer of $C$ has a
 
 Besides, according to  @achille:2017emergence, the above corollary does not simply imply that the more layers, the merrier, as there is the assumption that one has successfully trained the network ($\rvZ_L$ is sufficient). For  @achille:2017emergence, a successfully trained network becomes increasingly difficult as the network grows. A higher complexity seems straightforward because stacking layers increases the number of computations per batch.
 
-#### Proposed hypothesis {#sec:proposed_hypothesis}
+#### Proposed hypothesis {#sec-proposed_hypothesis}
 
 We will here lay out a new hypothesis and provide its intuition without a formal proof[^9].
 
@@ -338,27 +338,27 @@ Moreover, we demonstrated the power of [IBT]{acronym-label="IBT" acronym-form="s
 
   [1]: #ch:ib {reference-type="ref" reference="ch:ib"}
   [2]: #ch:ib_and_rl {reference-type="ref" reference="ch:ib_and_rl"}
-  [3]: #sec:resolution {reference-type="ref" reference="sec:resolution"}
-  [1.5.2]: #sec:layers {reference-type="ref" reference="sec:layers"}
+  [3]: #sec-resolution {reference-type="ref" reference="sec:resolution"}
+  [1.5.2]: #sec-layers {reference-type="ref" reference="sec:layers"}
   [4]: #th:specialib {reference-type="ref" reference="th:specialib"}
-  [5]: #sec:rethink_generalisation {reference-type="ref" reference="sec:rethink_generalisation"}
+  [5]: #sec-rethink_generalisation {reference-type="ref" reference="sec:rethink_generalisation"}
   [6]: #ch:literature {reference-type="ref" reference="ch:literature"}
   [7]: #blackbox {reference-type="ref" reference="blackbox"}
-  [8]: #sec:information-plane {reference-type="ref" reference="sec:information-plane"}
+  [8]: #sec-information-plane {reference-type="ref" reference="sec:information-plane"}
   [9]: #fig:ib-mean-variation {reference-type="ref" reference="fig:ib-mean-variation"}
   [10]: #fig:phase_transition_tishby15 {reference-type="ref" reference="fig:phase_transition_tishby15"}
   [11]: #fig:fisher_sensitivity {reference-type="ref" reference="fig:fisher_sensitivity"}
-  [12]: #sec:2_levels {reference-type="ref" reference="sec:2_levels"}
-  [1.4.1]: #sec:dvib {reference-type="ref" reference="sec:dvib"}
-  [1.3.4]: #sec:ibt_criticism {reference-type="ref" reference="sec:ibt_criticism"}
-  [13]: #sec:vae {reference-type="ref" reference="sec:vae"}
+  [12]: #sec-2_levels {reference-type="ref" reference="sec:2_levels"}
+  [1.4.1]: #sec-dvib {reference-type="ref" reference="sec:dvib"}
+  [1.3.4]: #sec-ibt_criticism {reference-type="ref" reference="sec:ibt_criticism"}
+  [13]: #sec-vae {reference-type="ref" reference="sec:vae"}
   [14]: #fig:flat-minima {reference-type="ref" reference="fig:flat-minima"}
   [1.5.1.0.4]: #flat-minima {reference-type="ref" reference="flat-minima"}
-  [15]: #sec:conclusion-ibrl {reference-type="ref" reference="sec:conclusion-ibrl"}
-  [16]: #sec:pac-shannon {reference-type="ref" reference="sec:pac-shannon"}
-  [17]: #sec:desiderata {reference-type="ref" reference="sec:desiderata"}
+  [15]: #sec-conclusion-ibrl {reference-type="ref" reference="sec:conclusion-ibrl"}
+  [16]: #sec-pac-shannon {reference-type="ref" reference="sec:pac-shannon"}
+  [17]: #sec-desiderata {reference-type="ref" reference="sec:desiderata"}
   [18]: #fig:fisher_deficit {reference-type="ref" reference="fig:fisher_deficit"}
-  [19]: #sec:invariant_if_minimal {reference-type="ref" reference="sec:invariant_if_minimal"}
+  [19]: #sec-invariant_if_minimal {reference-type="ref" reference="sec:invariant_if_minimal"}
   [20]: #cor:stacking {reference-type="ref" reference="cor:stacking"}
   [21]: #noisy_channel_theorem {reference-type="ref" reference="noisy_channel_theorem"}
-  [1.1.2]: #sec:SGD_in_IBT {reference-type="ref" reference="sec:SGD_in_IBT"}
+  [1.1.2]: #sec-SGD_in_IBT {reference-type="ref" reference="sec:SGD_in_IBT"}
