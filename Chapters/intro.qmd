@@ -23,7 +23,7 @@ Both researchers, at least, agree upon one thing: *the practice of machine learn
 
 
 
-![Richard Feynman, Nobel laureate physicist.](/Images/Feynman){.column-margin #fig-feynman width=90%}
+![Richard Feynman, Nobel laureate physicist.](/Images/feynman){.column-margin #fig-feynman width=90%}
 
 
 ### A Tale of Babylonians and Greeks {#sec-greeks}
